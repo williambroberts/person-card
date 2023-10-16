@@ -1,0 +1,205 @@
+:root {
+    --t1:hsl(217, 6%, 56%);
+    --h1:clamp(1.875rem, 1.5909rem + 1.4205vw, 2.5rem);
+    --h2:clamp(1rem, 0.8864rem + 0.5682vw, 1.25rem);
+    --p:clamp(0.875rem, 0.7756rem + 0.4972vw, 1.09375rem);
+    --my-p:clamp(1.25rem, 0.9659rem + 1.4205vw, 1.875rem);
+    --transition3:all 0.3s ease-in-out 0s;
+    --c1:hsl(275, 48%, 77%);
+    --black:hsl(220, 3%, 23%);
+    --box-shadow1: hsla(240, 5%, 41%, 0.2) 0px 7px 29px 0px;
+    --node:hsl(108, 28%, 51%);
+    --selection:hsl(0, 0%, 93%);
+    --container-padding-x:clamp(2rem, 0.6364rem + 6.8182vw, 5rem);
+    --container-padding-y:clamp(4rem, 2.6364rem + 6.8182vw, 7rem);;
+}
+/* CSS reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  
+  *{
+    margin: 0;
+  }
+  /* font style reaches  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /* focus is anywhere inside the html document */
+  html:focus-within {
+    scroll-behavior: smooth;
+   }
+  
+  /* add tab index -1 */
+  @media(prefers-reduced-motion){
+     html:focus-within{
+       scroll-behavior: auto;
+     }
+   }
+  
+   /* fonts */
+   body {
+    -webkit-font-smoothing: antialiased;
+   }
+  
+   /* media */
+   img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /* can break on long words as needed */
+  p, h1,h2,h3,h4,h5,h6,a,span,button {
+    overflow-wrap: break-word;
+  }
+  
+::selection{
+    color: currentColor;
+    background-color: var(--selection);
+}
+  
+  /* useful classes */
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100vw;
+    min-height: 100dvh;
+}
+main {
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-duration: 0.5s;
+    animation-delay: 0s;
+    animation-name: in;
+    width: 100%;
+    min-height: 100%;
+    background-color: hsl(216, 20%, 95%);
+    padding:clamp(2rem, 1.5455rem + 2.2727vw, 3rem) 0rem;
+}
+@keyframes in {
+    0%{
+        opacity: 0;
+    }
+    
+    100%{
+        opacity: 1;
+    }
+    
+}
+.container {
+    box-shadow: var(--box-shadow1);
+    margin: auto;
+    width: min(440px,100vw);
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: var(--container-padding-y);
+    padding-bottom: var(--container-padding-y);
+    padding-left: var(--container-padding-x);
+    padding-right: var(--container-padding-x);
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--t1);
+}
+
+.container > h1 {
+    font-size: var(--h1);
+    font-weight: 700;
+}
+
+.container > h2 {
+    font-size: var(--h2);
+    font-weight: 400;
+}
+
+.container > p:first-of-type {
+    font-size: var(--p);
+    font-weight: 400;
+    margin: var(--my-p) 0rem;
+    text-align: center;
+}
+.container__skeleton {
+    position: relative;
+    border-radius: clamp(1.5625rem, 1.5341rem + 0.142vw, 1.625rem);
+    overflow: hidden;
+    margin:var(--my-p) 0rem;
+}
+.container__skeleton img {
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(1);
+    
+
+}
+.container__links{
+    margin-bottom:var(--my-p);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.container__links > a {
+    display:flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition3);
+    width:clamp(1.5625rem, 1.1364rem + 2.1307vw, 2.5rem);
+    aspect-ratio: 1/1;
+    transition: var(--transition3);
+
+}
+.container__links a svg *{
+    fill: var(--t1);
+
+}
+.container__links > a:hover{
+    color: var(--c1);
+}
+.container__links > a:hover *{
+    color: currentColor;
+    fill: currentColor;
+}
+.container__links > a:nth-of-type(2):hover{
+    color: var(--black);
+}
+
+a.inline {
+    text-decoration: underline;
+    text-decoration-skip-ink: all;
+    text-decoration-color: currentColor;
+    transition: var(--transition3);
+    font-size: inherit;
+    font-weight: inherit;
+    padding: 0 0px;
+    color: var(--t1);
+}
+a.inline:hover {
+    color: var(--black);
+
+}
+a.inline:focus-visible {
+    color: var(--c1);
+}
+
+.container__span {
+    margin-top: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.5px;
+}
+.container__flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.25em;
+    align-items: center;
+}
+
